@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50ea6ef3-708d-4105-b9ed-e7448ef39d0c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw01-gradle/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw01-gradle/src/main/java/ru/otus/HelloOtus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="50ea6ef3-708d-4105-b9ed-e7448ef39d0c" name="Changes" comment="hw01-gradle solution">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +113,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.Otus_Java_2024:hw01-gradle [shadowJar]">
+  <component name="RunManager" selected="Gradle.Otus_Java_2024 [build]">
     <configuration name="ru.otus.HelloOtus" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.otus.HelloOtus" />
       <module name="otusJava.hw01-gradle.main" />
@@ -225,11 +220,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Otus_Java_2024:hw01-gradle [shadowJar]" />
+        <item itemvalue="Gradle.Otus_Java_2024 [build]" />
         <item itemvalue="Gradle.Otus_Java_2024:hw01-gradle [build]" />
+        <item itemvalue="Gradle.Otus_Java_2024:hw01-gradle [shadowJar]" />
         <item itemvalue="Gradle.Otus_Java_2024:hw01-gradle [clean]" />
         <item itemvalue="Application.ru.otus.HelloOtus" />
-        <item itemvalue="Gradle.Otus_Java_2024 [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -243,8 +238,16 @@
       <updated>1716066553965</updated>
       <workItem from="1716066555642" duration="59000" />
       <workItem from="1716123643168" duration="1880000" />
-      <workItem from="1716125769681" duration="25000" />
+      <workItem from="1716125769681" duration="501000" />
     </task>
+    <task id="LOCAL-00001" summary="hw01-gradle solution">
+      <created>1716125964091</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716125964091</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,5 +263,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="hw01-gradle solution" />
+    <option name="LAST_COMMIT_MESSAGE" value="hw01-gradle solution" />
   </component>
 </project>
