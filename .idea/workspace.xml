@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50ea6ef3-708d-4105-b9ed-e7448ef39d0c" name="Changes" comment="hw01-gradle solution">
+    <list default="true" id="50ea6ef3-708d-4105-b9ed-e7448ef39d0c" name="Changes" comment="workspace">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +88,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="hw02-generics" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -220,10 +221,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Otus_Java_2024 [build]" />
-        <item itemvalue="Gradle.Otus_Java_2024:hw01-gradle [build]" />
         <item itemvalue="Gradle.Otus_Java_2024:hw01-gradle [shadowJar]" />
         <item itemvalue="Gradle.Otus_Java_2024:hw01-gradle [clean]" />
+        <item itemvalue="Gradle.Otus_Java_2024:hw01-gradle [build]" />
+        <item itemvalue="Gradle.Otus_Java_2024 [build]" />
         <item itemvalue="Application.ru.otus.HelloOtus" />
       </list>
     </recent_temporary>
@@ -239,6 +240,7 @@
       <workItem from="1716066555642" duration="59000" />
       <workItem from="1716123643168" duration="1880000" />
       <workItem from="1716125769681" duration="501000" />
+      <workItem from="1716369233130" duration="72000" />
     </task>
     <task id="LOCAL-00001" summary="hw01-gradle solution">
       <created>1716125964091</created>
