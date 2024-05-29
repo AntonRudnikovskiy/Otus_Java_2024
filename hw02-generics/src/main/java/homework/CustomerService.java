@@ -10,24 +10,18 @@ public class CustomerService {
     }
 
     public Map.Entry<Customer, String> getSmallest() {
-        Map.Entry<Customer, String> smallestScore = customerMap.entrySet().stream()
-                .min(Comparator.comparingLong(c -> c.getKey().getScores()))
-                .orElseThrow();
-        Customer smallestCustomerCopy = getCustomer(smallestScore);
-        return new AbstractMap.SimpleEntry<>(smallestCustomerCopy, smallestScore.getValue());
+        Customer customer = customerMap.firstKey();
+        return new AbstractMap.SimpleEntry<>(new Customer(customer.getId(), customer.getName(), customer.getScores()),
+                customerMap.get(customer));
     }
 
     public Map.Entry<Customer, String> getNext(Customer customer) {
         Map.Entry<Customer, String> nextEntry = customerMap.higherEntry(customer);
         if (nextEntry != null) {
-            Customer nextCustomerCopy = getCustomer(nextEntry);
-            return new AbstractMap.SimpleEntry<>(nextCustomerCopy, nextEntry.getValue());
+            return new AbstractMap.SimpleEntry<>(new Customer(nextEntry.getKey().getId(), nextEntry.getKey().getName(),
+                    nextEntry.getKey().getScores()), nextEntry.getValue());
         }
         return null;
-    }
-
-    private Customer getCustomer(Map.Entry<Customer, String> nextEntry) {
-        return new Customer(nextEntry.getKey().getId(), nextEntry.getKey().getName(), nextEntry.getKey().getScores());
     }
 
     public void add(Customer customer, String data) {
