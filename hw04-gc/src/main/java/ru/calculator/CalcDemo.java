@@ -7,8 +7,6 @@ package ru.calculator;
 -XX:HeapDumpPath=./logs/heapdump.hprof
 -XX:+UseG1GC
 -Xlog:gc=debug:file=./logs/gc-%p-%t.log:tags,uptime,time,level:filecount=5,filesize=10m
-
-С размером хипа 512m приложение работает более оптимально за spend msec:939, sec:0
 */
 
 import java.time.LocalDateTime;
