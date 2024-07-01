@@ -25,3 +25,4 @@ pluginManagement {
     }
 }
 include("hw05-aop")
+include("hw04-gc")
