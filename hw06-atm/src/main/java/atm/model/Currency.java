@@ -1,5 +1,7 @@
 package atm.model;
 
+import java.util.Arrays;
+
 public enum Currency {
     FIVE_THOUSAND(5000),
     TWO_THOUSAND(2000),
@@ -14,5 +16,9 @@ public enum Currency {
 
     public int getValue() {
         return value;
+    }
+
+    public static int[] getDenominations() {
+        return Arrays.stream(values()).mapToInt(Currency::getValue).toArray();
     }
 }
