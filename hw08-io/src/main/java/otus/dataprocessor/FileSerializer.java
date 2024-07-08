@@ -16,10 +16,14 @@ public class FileSerializer implements Serializer {
     }
 
     @Override
-    public void serialize(Map<String, Double> data) throws IOException {
+    public void serialize(Map<String, Double> data) {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS);
-        objectMapper.writeValue(new File(getFileName()), data);
+        try {
+            objectMapper.writeValue(new File(getFileName()), data);
+        } catch (IOException e) {
+            throw new FileProcessException(e);
+        }
     }
 
     public String getFileName() {
