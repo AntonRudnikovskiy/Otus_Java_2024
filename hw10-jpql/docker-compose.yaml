@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: postgres:12
+    environment:
+      - POSTGRES_PASSWORD=pwd
+      - POSTGRES_USER=usr
+      - POSTGRES_DB=demoDB
+    ports:
+      - '5432:5432'
