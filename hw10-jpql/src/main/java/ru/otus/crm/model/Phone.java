@@ -23,7 +23,7 @@ public class Phone {
     @Column(name = "number")
     private String number;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     private Client client;
 

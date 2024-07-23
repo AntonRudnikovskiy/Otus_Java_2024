@@ -23,7 +23,7 @@ public class Address {
     @Column(name = "street")
     private String street;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     private Client client;
 
