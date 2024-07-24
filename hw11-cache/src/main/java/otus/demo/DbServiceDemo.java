@@ -36,51 +36,18 @@ public class DbServiceDemo {
 
         var clientTemplate = new DataTemplateHibernate<>(Client.class);
 
-        var dbServiceClient = new DbServiceClientImpl(transactionManager, clientTemplate);
+        HwCache<Long, Client> cache = new MyCache<>();
+
+        var dbServiceClient = new DbServiceClientImpl(transactionManager, clientTemplate, cache);
         dbServiceClient.saveClient(new Client("dbServiceFirst"));
 
-        // клиенты из базы
         var clientSecond = dbServiceClient.saveClient(new Client("dbServiceSecond"));
         var clientSecondSelected1 = dbServiceClient
                 .getClient(clientSecond.getId())
                 .orElseThrow(() -> new RuntimeException("Client not found, id:" + clientSecond.getId()));
         log.info("clientSecondSelected:{}", clientSecondSelected1);
 
-        var clientSecondSelected2 = dbServiceClient
-                .getClient(clientSecond.getId())
-                .orElseThrow(() -> new RuntimeException("Client not found, id:" + clientSecond.getId()));
-        log.info("clientSecondSelected:{}", clientSecondSelected2);
-
-        var clientSecondSelected3 = dbServiceClient
-                .getClient(clientSecond.getId())
-                .orElseThrow(() -> new RuntimeException("Client not found, id:" + clientSecond.getId()));
-        log.info("clientSecondSelected:{}", clientSecondSelected3);
-
-        var clientSecondSelected4 = dbServiceClient
-                .getClient(clientSecond.getId())
-                .orElseThrow(() -> new RuntimeException("Client not found, id:" + clientSecond.getId()));
-        log.info("clientSecondSelected:{}", clientSecondSelected4);
-
-        var clientSecondSelected5 = dbServiceClient
-                .getClient(clientSecond.getId())
-                .orElseThrow(() -> new RuntimeException("Client not found, id:" + clientSecond.getId()));
-        log.info("clientSecondSelected:{}", clientSecondSelected5);
-
-
         log.info("All clients");
         dbServiceClient.findAll().forEach(client -> log.info("client:{}", client));
-
-        // клиенты из кеша
-        HwCache<String, Client> cache = new MyCache<>();
-        cache.put("client", new Client(clientSecondSelected1.getId(), "dbServiceSecondUpdated"));
-        cache.put("client", new Client(clientSecondSelected2.getId(), "dbServiceSecondUpdated"));
-        cache.put("client", new Client(clientSecondSelected3.getId(), "dbServiceSecondUpdated"));
-        cache.put("client", new Client(clientSecondSelected4.getId(), "dbServiceSecondUpdated"));
-        cache.put("client", new Client(clientSecondSelected5.getId(), "dbServiceSecondUpdated"));
-
-        for (int i = 0; i < 4; i++) {
-            log.info("clients from cache");
-            cache.get("client");
-        }
     }
 }
