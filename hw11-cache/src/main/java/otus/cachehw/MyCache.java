@@ -1,20 +1,21 @@
 package otus.cachehw;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 
+@Slf4j
 public class MyCache<K, V> implements HwCache<K, V> {
     private final Map<K, V> map = new WeakHashMap<>();
-    private final Set<HwListener<K, V>> hwListeners = new CopyOnWriteArraySet();
+    private final Set<HwListener<K, V>> hwListeners = new CopyOnWriteArraySet<>();
 
     @Override
     public void put(K key, V value) {
-        if (!map.containsKey(key)) {
-            map.put(key, value);
-            notifyListeners(key, value, "put");
-        }
+        map.put(key, value);
+        notifyListeners(key, value, "put");
     }
 
     @Override
@@ -45,7 +46,7 @@ public class MyCache<K, V> implements HwCache<K, V> {
             try {
                 hwListener.notify(key, value, action);
             } catch (Exception e) {
-                e.printStackTrace();
+                log.error("Error occurred", e);
             }
         }
     }
