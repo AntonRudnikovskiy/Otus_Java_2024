@@ -30,3 +30,4 @@ pluginManagement {
     }
 }
 include("hw11-cache")
+include("hw12-jetty")
