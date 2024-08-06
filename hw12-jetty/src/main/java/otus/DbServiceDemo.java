@@ -35,7 +35,7 @@ public class DbServiceDemo {
         var dbUserName = configuration.getProperty("hibernate.connection.username");
         var dbPassword = configuration.getProperty("hibernate.connection.password");
 
-        new MigrationsExecutorFlyway(dbUrl, dbUserName, dbPassword).executeMigrations();
+        getMigrations(dbUrl, dbUserName, dbPassword);
 
         var sessionFactory = HibernateUtils.buildSessionFactory(configuration, Client.class, Address.class, Phone.class);
         var transactionManager = new TransactionManagerHibernate(sessionFactory);
@@ -58,5 +58,9 @@ public class DbServiceDemo {
 
         usersWebServer.start();
         usersWebServer.join();
+    }
+
+    private static void getMigrations(String dbUrl, String dbUserName, String dbPassword) {
+        new MigrationsExecutorFlyway(dbUrl, dbUserName, dbPassword).executeMigrations();
     }
 }
