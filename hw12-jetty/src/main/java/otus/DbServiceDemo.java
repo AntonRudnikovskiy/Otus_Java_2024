@@ -1,12 +1,10 @@
-package otus.demo;
+package otus;
 
 import org.eclipse.jetty.security.HashLoginService;
 import org.eclipse.jetty.security.LoginService;
 import org.eclipse.jetty.util.resource.PathResourceFactory;
 import org.eclipse.jetty.util.resource.Resource;
 import org.hibernate.cfg.Configuration;
-import otus.cachehw.HwCache;
-import otus.cachehw.MyCache;
 import otus.core.repository.DataTemplateHibernate;
 import otus.core.repository.HibernateUtils;
 import otus.core.sessionmanager.TransactionManagerHibernate;
@@ -28,7 +26,6 @@ public class DbServiceDemo {
     private static final String TEMPLATES_DIR = "/templates/";
     private static final String HASH_LOGIN_SERVICE_CONFIG_NAME = "realm.properties";
     private static final String REALM_NAME = "AnyRealm";
-
     public static final String HIBERNATE_CFG_FILE = "hibernate.cfg.xml";
 
     public static void main(String[] args) throws Exception {
@@ -44,9 +41,7 @@ public class DbServiceDemo {
         var transactionManager = new TransactionManagerHibernate(sessionFactory);
         var clientTemplate = new DataTemplateHibernate<>(Client.class);
 
-        HwCache<Long, Client> cache = new MyCache<>();
-
-        var dbServiceClient = new DbServiceClientImpl(transactionManager, clientTemplate, cache);
+        var dbServiceClient = new DbServiceClientImpl(transactionManager, clientTemplate);
         dbServiceClient.saveClient(new Client("dbServiceFirst"));
 
         TemplateProcessor templateProcessor = new TemplateProcessorImpl(TEMPLATES_DIR);

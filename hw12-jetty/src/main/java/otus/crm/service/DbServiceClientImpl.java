@@ -2,7 +2,6 @@ package otus.crm.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import otus.cachehw.HwCache;
 import otus.core.repository.DataTemplate;
 import otus.core.sessionmanager.TransactionManager;
 import otus.crm.model.Client;
@@ -14,13 +13,10 @@ public class DbServiceClientImpl implements DBServiceClient {
     private static final Logger log = LoggerFactory.getLogger(DbServiceClientImpl.class);
     private final DataTemplate<Client> clientDataTemplate;
     private final TransactionManager transactionManager;
-    private final HwCache<Long, Client> cache;
 
-    public DbServiceClientImpl(TransactionManager transactionManager, DataTemplate<Client> clientDataTemplate,
-                               HwCache<Long, Client> cache) {
+    public DbServiceClientImpl(TransactionManager transactionManager, DataTemplate<Client> clientDataTemplate) {
         this.transactionManager = transactionManager;
         this.clientDataTemplate = clientDataTemplate;
-        this.cache = cache;
     }
 
     @Override
@@ -33,7 +29,6 @@ public class DbServiceClientImpl implements DBServiceClient {
                 return savedClient;
             }
             var savedClient = clientDataTemplate.update(session, clientCloned);
-            cache.put(savedClient.getId(), savedClient);
             log.info("updated client: {}", savedClient);
             return savedClient;
         });
@@ -42,7 +37,7 @@ public class DbServiceClientImpl implements DBServiceClient {
     @Override
     public Optional<Client> getClient(long id) {
         return transactionManager.doInReadOnlyTransaction(session -> {
-            Client client = cache.get(id);
+            Client client = clientDataTemplate.findById(session, id).orElseThrow();
             log.info("client: {}", client);
             return Optional.ofNullable(client);
         });
