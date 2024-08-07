@@ -17,7 +17,7 @@ import otus.crm.service.TemplateProcessor;
 import otus.crm.service.TemplateProcessorImpl;
 import otus.helpers.FileSystemHelper;
 import otus.server.ClientsWebServer;
-import otus.server.ClientsWebServerWithBasicSecurity;
+import otus.server.UsersWebServerWithFilterBasedSecurity;
 
 import java.net.URI;
 
@@ -54,7 +54,7 @@ public class DbServiceDemo {
         LoginService loginService = new HashLoginService(REALM_NAME, configResource);
 
         ClientsWebServer usersWebServer =
-                new ClientsWebServerWithBasicSecurity(WEB_SERVER_PORT, loginService, dbServiceClient, templateProcessor);
+                new UsersWebServerWithFilterBasedSecurity(WEB_SERVER_PORT, loginService, dbServiceClient, templateProcessor);
 
         usersWebServer.start();
         usersWebServer.join();
