@@ -7,6 +7,9 @@ include("hw05-aop")
 include("hw06-atm")
 include("hw08-io")
 include("hw10-jpql")
+include("hw11-cache")
+include("hw12-jetty")
+include("hw13-IoC")
 
 pluginManagement {
     val jgitver: String by settings
@@ -29,5 +32,3 @@ pluginManagement {
         id("com.diffplug.spotless") version spotless
     }
 }
-include("hw11-cache")
-include("hw13-IoC")
