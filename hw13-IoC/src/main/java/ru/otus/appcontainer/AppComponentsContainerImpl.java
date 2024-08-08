@@ -93,7 +93,7 @@ public class AppComponentsContainerImpl implements AppComponentsContainer {
                     "Expected one component of type %s, but found %d", componentClass.getName(), components.size()));
         }
 
-        return components.get(0);
+        return components.getFirst();
     }
 
     @Override
